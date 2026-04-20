@@ -1,0 +1,1829 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ميكنة تقارير الجودة - MUST</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700;800&family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- ===================== NAVBAR ===================== -->
+    <header class="big-navbar" id="home">
+      <div class="must-navbar-main">
+        <div class="nav-container primary-nav-shell">
+          <a
+            href="/"
+            class="nav-logo"
+            aria-label="MUST Home — الصفحة الرئيسية"
+            style="display:flex;align-items:center;gap:10px;padding:4px 8px;"
+          >
+            <img
+              src="must-logo.png"
+              alt="MUST Logo"
+              class="navbar-logo-img"
+              style="height:46px;width:auto;display:block;"
+            />
+          </a>
+
+          <div class="nav-right-cluster">
+
+            <!-- تقارير (active) -->
+            <div class="nav-reports-dropdown">
+              <button class="nav-reports-btn active" type="button">
+                تقارير
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M7 10l5 5 5-5z" />
+                </svg>
+              </button>
+              <div class="nav-reports-menu">
+                <a href="#page-quality-standards" class="nav-reports-link" id="nav-dropdown-quality-page">تقارير جوده</a>
+                <a href="#page-course-file" class="nav-reports-link" id="nav-dropdown-course-page">تقارير مقررات دراسيه</a>
+              </div>
+            </div>
+
+            <!-- عرض تقارير -->
+            <div class="nav-reports-dropdown">
+              <button class="nav-reports-btn" type="button">
+                عرض تقارير
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M7 10l5 5 5-5z" />
+                </svg>
+              </button>
+              <div class="nav-reports-menu">
+                <a href="#" class="nav-reports-link" id="nav-dropdown-view-quality" onclick="openViewReportsTab('quality'); return false;">ملف المعايير</a>
+                <a href="#" class="nav-reports-link" id="nav-dropdown-view-course" onclick="openViewReportsTab('course'); return false;">ملف مقررات الدراسية</a>
+              </div>
+            </div>
+
+            <!-- اصدارات ونماذج -->
+            <a href="#page-releases-forms" class="nav-simple-link">اصدارات ونماذج</a>
+
+            <!-- Auth Section -->
+            <div class="auth-nav" id="siteAuthNav">
+              <a
+                href="#page-admin-dashboard"
+                class="auth-dashboard-link"
+                id="adminDashboardLink"
+                >Dashboard</a
+              >
+              <a
+                href="#page-user-profile"
+                class="auth-profile-link"
+                id="userProfileLink"
+                >Profile</a
+              >
+              <div class="auth-links">
+                <a href="#" class="auth-btn" id="openAuthModalBtn">Login</a>
+                <a href="#" class="auth-btn auth-btn-primary" id="openRegisterModalBtn">Register</a>
+              </div>
+              <button class="auth-logout-btn" id="siteLogoutBtn" type="button">
+                Logout
+              </button>
+            </div>
+
+            <!-- Language Toggle -->
+            <button
+              class="language-toggle-btn"
+              id="languageToggleBtn"
+              type="button"
+              aria-label="التحويل إلى العربية"
+            >
+              ع
+            </button>
+
+            <!-- Dark Mode Toggle -->
+            <button
+              class="nav-icon-link theme-toggle"
+              type="button"
+              aria-label="Toggle Light or Dark Mode"
+            >
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"
+                />
+              </svg>
+            </button>
+
+            <button
+              class="nav-icon-link custom-menu-btn"
+              type="button"
+              aria-label="Open Menu"
+              aria-expanded="false"
+              aria-controls="mainSiteMenu"
+            >
+              <svg
+                width="28"
+                height="20"
+                viewBox="0 0 24 16"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect x="0" y="0" width="24" height="2" rx="1"></rect>
+                <rect x="8" y="7" width="16" height="2" rx="1"></rect>
+                <rect x="0" y="14" width="24" height="2" rx="1"></rect>
+              </svg>
+            </button>
+          </div>
+
+          <nav class="nav-menu" id="mainSiteMenu" aria-hidden="true">
+            <div class="nav-menu-header">
+              <h2>Menu</h2>
+              <button
+                class="nav-menu-close"
+                type="button"
+                aria-label="Close Menu"
+              >
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+
+            <ul class="nav-menu-list">
+              <li class="nav-menu-item">
+                <a href="#home" class="nav-menu-link">Home</a>
+              </li>
+              <li class="nav-menu-item has-submenu">
+                <button
+                  class="nav-menu-link submenu-toggle"
+                  type="button"
+                  aria-expanded="false"
+                >
+                  About Sector <i class="fas fa-chevron-down"></i>
+                </button>
+                <ul class="submenu-list">
+                  <li>
+                    <a href="#about-sector" class="submenu-link"
+                      >Vice Dean's Message</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#annual-plan" class="submenu-link">Sector Plan</a>
+                  </li>
+                  <li>
+                    <a href="#sector-activities" class="submenu-link"
+                      >Sector Activities</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#sector-vision" class="submenu-link"
+                      >Sector Vision</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#sector-mission" class="submenu-link"
+                      >Sector Mission</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#sector-objectives" class="submenu-link"
+                      >Sector Objectives</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-menu-item has-submenu">
+                <button
+                  class="nav-menu-link submenu-toggle"
+                  type="button"
+                  aria-expanded="false"
+                >
+                  Sector Committees <i class="fas fa-chevron-down"></i>
+                </button>
+                <ul class="submenu-list">
+                  <li>
+                    <a href="#committees" class="submenu-link"
+                      >Committees Overview</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#community-service-committee" class="submenu-link"
+                      >Community Service Committee</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#graduate-follow-up-committee" class="submenu-link"
+                      >Graduate Follow-up Committee</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#crisis-and-disaster-committee"
+                      class="submenu-link"
+                      >Crisis and Disaster Committee</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#entrepreneurship-committee" class="submenu-link"
+                      >Entrepreneurship Committee</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-menu-item has-submenu">
+                <button
+                  class="nav-menu-link submenu-toggle"
+                  type="button"
+                  aria-expanded="false"
+                >
+                  Protocols <i class="fas fa-chevron-down"></i>
+                </button>
+                <ul class="submenu-list">
+                  <li>
+                    <a href="#protocols" class="submenu-link"
+                      >Protocols Overview</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#protocol-narss" class="submenu-link"
+                      >Remote Sensing Authority</a
+                    >
+                  </li>
+                  <li><a href="#protocol-nti" class="submenu-link">NTI</a></li>
+                  <li>
+                    <a href="#protocol-icthub" class="submenu-link"
+                      >ICT Hub Egypt</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#protocol-huawei" class="submenu-link"
+                      >Huawei Academy</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#protocol-mepal" class="submenu-link">MEPAL</a>
+                  </li>
+                  <li>
+                    <a href="#protocol-drug-control" class="submenu-link"
+                      >Drug Control Fund</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-menu-item">
+                <a href="#events" class="nav-menu-link">Events</a>
+              </li>
+              <li class="nav-menu-item">
+                <a href="#news" class="nav-menu-link">News</a>
+              </li>
+              <li class="nav-menu-item">
+                <a href="#contact" class="nav-menu-link">Contact Us</a>
+              </li>
+              <li class="nav-menu-item hidden" id="adminMenuDashboardItem">
+                <a
+                  href="../admin-dashboard/admin-dashboard.html"
+                  class="nav-menu-link"
+                  >Dashboard</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===================== HOME PAGE
+  <!
+<!-- ===================== APP SUB-NAV (shown after login) ===================== -->
+ <!--
+    <div class="app-subnav" id="app-subnav" style="display: none">
+      <div class="app-subnav-inner">
+        <div class="app-subnav-links">
+          <button
+            class="app-nav-btn"
+            id="nav-admin-dashboard"
+            onclick="guardedNav('admin-dashboard', this, 'admin')"
+          >
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <rect x="3" y="3" width="7" height="7"></rect>
+              <rect x="14" y="3" width="7" height="7"></rect>
+              <rect x="14" y="14" width="7" height="7"></rect>
+              <rect x="3" y="14" width="7" height="7"></rect>
+            </svg>
+            لوحة التحكم
+          </button>
+          <button
+            class="app-nav-btn"
+            id="nav-course"
+            onclick="guardedNav('course-file', this, 'admin')"
+          >
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+              <polyline points="14 2 14 8 20 8" />
+            </svg>
+            تقرير ملف المقرر
+          </button>
+          <button
+            class="app-nav-btn"
+            id="nav-quality"
+            onclick="guardedNav('quality-standards', this, 'admin')"
+          >
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="9 11 12 14 22 4" />
+            </svg>
+            تقرير معايير الجودة
+          </button>
+          <button
+            class="app-nav-btn"
+            id="nav-view-reports"
+            onclick="guardedNav('view-reports', this, 'viewer')"
+          >
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <path d="M3 9h18M9 21V9" />
+            </svg>
+            عرض التقارير
+          </button>
+          <button
+            class="app-nav-btn"
+            id="nav-user-profile"
+            onclick="guardedNav('user-profile', this, 'viewer')"
+          >
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
+            ملفي الشخصي
+          </button>
+        </div>
+        -->
+        <!-- <div class="app-subnav-user" id="subnav-user-bar">
+        -->
+          <!-- filled by auth.js -->
+        <!---
+        </div> -->
+      </div>
+    </div>
+      <!-- <div class="app-subnav" id="app-subnav" style="display: none">
+        <div class="app-subnav-inner">
+          <div class="app-subnav-links">
+            /* Lines 299-391 omitted */
+          </div>
+          <div class="app-subnav-user" id="subnav-user-bar">
+            --->
+        <!-- filled by auth.js -->
+         <!--
+          </div>
+        </div>
+      </div> -->
+    
+    <!-- ===================== SLIDER (VISIBLE ON ALL PAGES) ===================== -->
+    <div class="slider-container">
+      <div class="slide active">
+        <img src="assets/images/slider1.jpg" alt="slider 1" />
+        <div class="slide-overlay">
+          <div class="slide-text">
+            <h1>منظومة <span>ميكنة تقارير</span> الجودة</h1>
+            <p>
+              نظام متكامل لأتمتة تقارير مراجعة ملفات المقررات ومعايير الاعتماد
+              المؤسسي والبرامجي وفق معايير الهيئة القومية لضمان جودة التعليم
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="assets/images/slider2.jpg" alt="slider 2" />
+        <div class="slide-overlay">
+          <div class="slide-text">
+            <h1>تقارير <span>ملفات المقررات</span></h1>
+            <p>
+              مراجعة ومتابعة ملفات المقررات الدراسية بشكل منظم ودقيق مع
+              إمكانية التصدير إلى PDF وExcel
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <img src="assets/images/slider5.jpg" alt="slider5" />
+        <div class="slide-overlay">
+          <div class="slide-text">
+            <h1>وحدة <span>ضمان الجودة</span></h1>
+            <p>
+              جامعة مصر للعلوم والتكنولوجيا – ملتزمون بتحقيق أعلى معايير
+              الجودة الأكاديمية والمؤسسية
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <img src="assets/images/slider3.jpg" alt="slider3" />
+        <div class="slide-overlay">
+          <div class="slide-text">
+            <h1>معايير <span>الاعتماد</span></h1>
+            <p>
+              ضمان الامتثال لمعايير الهيئة القومية لضمان جودة التعليم وتحقيق
+              الاعتماد الأكاديمي
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <img src="assets/images/slider6.jpeg" alt="slider6" />
+        <div class="slide-overlay">
+          <div class="slide-text">
+            <h1>التطوير <span>المستمر</span></h1>
+            <p>
+              الالتزام بتحسين العمليات الأكاديمية والإدارية بشكل مستمر لضمان
+              الجودة العالية
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <img src="assets/images/slider7.jpeg" alt="slider7" />
+        <div class="slide-overlay">
+          <div class="slide-text">
+            <h1>الشراكات <span>الاستراتيجية</span></h1>
+            <p>
+              بناء شراكات مع المؤسسات التعليمية والجهات المعنية لتعزيز الجودة
+              والاعتماد
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- Removed slides: Accreditation Standards and Progress Tracking -->
+      <button
+        type="button"
+        class="slider-btn slider-btn--back"
+        dir="ltr"
+        onclick="changeSlide(-1)"
+        aria-label="الشريحة السابقة"
+      >
+        &#x276E;
+      </button>
+      <button
+        type="button"
+        class="slider-btn slider-btn--fwd"
+        dir="ltr"
+        onclick="changeSlide(1)"
+        aria-label="الشريحة التالية"
+      >
+        &#x276F;
+      </button>
+      <div class="slider-dots" id="slider-dots"></div>
+    </div>
+
+    <!-- ===================== HOME PAGE ===================== -->
+    <div id="page-home" class="page active">
+      <!-- STATS (logged-in only) -->
+      <div
+        class="stat-row members-only"
+        id="home-members-section"
+        style="display: none"
+      >
+        <div class="stat-item">
+          <div class="val" id="stat-reports">0</div>
+          <div class="lbl">إجمالي التقارير المُدخلة</div>
+        </div>
+        <div class="stat-item">
+          <div class="val" id="stat-institutional">12</div>
+          <div class="lbl">معيار مؤسسي</div>
+        </div>
+        <div class="stat-item">
+          <div class="val" id="stat-programmatic">7</div>
+          <div class="lbl">معيار برامجي</div>
+        </div>
+        <div class="stat-item">
+          <div class="val" id="stat-report-types">2</div>
+          <div class="lbl">نوع التقرير</div>
+        </div>
+      </div>
+
+      <!-- QUICK CARDS (logged-in only) -->
+      <div class="members-only" id="home-cards-section" style="display: none">
+        <div class="section-title">
+          <h2>خدمات وحدة الجودة</h2>
+          <div class="gold-line"></div>
+        </div>
+        <div class="quick-cards">
+          <div
+            class="quick-card"
+            data-role="admin"
+            onclick="
+              guardedNav(
+                'course-file',
+                document.getElementById('nav-course'),
+                'admin',
+              )
+            "
+          >
+            <div class="icon">📋</div>
+            <h3>تقرير مراجعة ملف المقرر</h3>
+            <p>
+              إدخال بيانات مراجعة ملفات المقررات الدراسية وتتبع وجود جميع
+              المستندات المطلوبة
+            </p>
+          </div>
+          <div
+            class="quick-card"
+            data-role="admin"
+            onclick="
+              guardedNav(
+                'quality-standards',
+                document.getElementById('nav-quality'),
+                'admin',
+              )
+            "
+          >
+            <div class="icon">🏛️</div>
+            <h3>تقرير مراجعة معايير الجودة</h3>
+            <p>
+              تقييم مستوى استيفاء معايير الاعتماد المؤسسي والبرامجي وفق معايير
+              NAQAAE
+            </p>
+          </div>
+          <div
+            class="quick-card"
+            data-role="viewer"
+            onclick="
+              guardedNav(
+                'view-reports',
+                document.getElementById('nav-view-reports'),
+                'viewer',
+              )
+            "
+          >
+            <div class="icon">📊</div>
+            <h3>عرض التقارير المُدخلة</h3>
+            <p>
+              استعراض وتصفية جميع التقارير المُدخلة وتصديرها بتنسيقات مختلفة
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ABOUT SECTION (guest only) -->
+      <div class="guest-about" id="home-guest-section">
+        <div class="guest-about-inner">
+          <div class="guest-about-img">
+            <div class="guest-logo-circle">
+              <img src="assets/images/mustlogoHeader.png" alt="MUST Logo" />
+            </div>
+          </div>
+          <div class="guest-about-content">
+            <h2>عن وحدة ضمان الجودة</h2>
+            <div class="gold-line" style="margin: 0.6rem 0 1.2rem"></div>
+
+            <div class="guest-about-block">
+              <h4>رؤية الوحدة</h4>
+              <p>وحدة ذكية رائدة تتبنى نظم الجودة والاعتماد بتميز.</p>
+            </div>
+
+            <div class="guest-about-block">
+              <h4>رسالة الوحدة</h4>
+              <p>
+                تسعى إلى تحقيق وتنفيذ أفضل الممارسات لضمان الجودة وتقييم الأداء،
+                وتعزيز ثقافة التقييم والتحسين المستمر لكافة جوانب الكلية.
+              </p>
+            </div>
+
+            <div class="guest-about-block">
+              <h4>القيم المؤسسية للوحدة</h4>
+              <ul class="guest-values">
+                <li>ترسيخ مبادئ الجودة الشاملة</li>
+                <li>تحفيز الابداع المستمر</li>
+                <li>العمل بروح الفريق واحترام الاختلاف</li>
+                <li>التنمية الذاتية المستدامة</li>
+              </ul>
+            </div>
+
+            <div class="guest-about-block">
+              <h4>الأهداف الاستراتيجية للوحدة</h4>
+              <p>
+                تعمل الوحدة على تبني مجموعة من الأهداف الاستراتيجية التي تتوافق
+                تماماً مع قيم ومتطلبات الهيئة القومية لضمان جودة التعليم
+                والاعتماد، وتحقيق رسالة الوحدة، والمساهمة في تحقيق رسالة الكلية.
+              </p>
+            </div>
+
+            <button class="btn-login-cta" onclick="openAuthModal('login')">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+                <polyline points="10 17 15 12 10 7" />
+                <line x1="15" y1="12" x2="3" y2="12" />
+              </svg>
+              تسجيل الدخول للوصول إلى النظام
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <link rel="stylesheet" href="css/forms-cards.css">
+    <!-- ===================== ADMIN DASHBOARD PAGE ===================== -->
+    <div id="page-admin-dashboard" class="page">
+      <div class="page-header">
+        <div class="page-header-icon">⚙️</div>
+        <div>
+          <div class="breadcrumb">الرئيسية / لوحة التحكم</div>
+          <h2>لوحة تحكم المسؤول</h2>
+          <p>Admin Dashboard – Course & User Access Management</p>
+        </div>
+      </div>
+
+      <div class="form-container" style="margin: 2rem auto">
+        <!-- Tabs -->
+        <div class="tabs">
+          <button
+            class="tab-btn active"
+            onclick="switchTab('admin-courses-tab', this)"
+          >
+            إدارة المحتوى الأكاديمي
+          </button>
+          <button class="tab-btn" onclick="switchTab('admin-access-tab', this)">
+            إدارة الوصول
+          </button>
+        </div>
+
+        <!-- Courses & Models Management Tab -->
+        <div id="admin-courses-tab" class="tab-content active">
+          <div class="form-section">
+            <div class="form-section-title">📚 إدارة المقررات والنماذج</div>
+
+            <!-- Add New Course Form -->
+            <div style="margin-bottom: 2rem; padding: 1.5rem; background: #f8fafb; border-radius: 12px; border: 1px solid #e5e7eb;">
+              <h3 style="color: var(--navy); font-size: 1rem; margin-bottom: 1rem">إضافة مقرر جديد</h3>
+              <div class="form-grid">
+                <div class="form-group">
+                  <label>كود المقرر <span class="req">*</span></label>
+                  <input type="text" id="admin-course-code" placeholder="مثال: CS401" />
+                </div>
+                <div class="form-group">
+                  <label>اسم المقرر <span class="req">*</span></label>
+                  <input type="text" id="admin-course-name" placeholder="اسم المقرر بالعربية" />
+                </div>
+              </div>
+              <button class="btn-primary" onclick="addNewCourse()" style="margin-top: 1rem">➕ إضافة مقرر</button>
+            </div>
+
+            <!-- تم حذف جدول المقررات بناءً على طلب الإدارة -->
+
+            <!-- Add New Model (PDF) Form -->
+            <div style="margin-bottom: 2rem; padding: 1.5rem; background: #f0f7fa; border-radius: 12px; border: 1px solid #b3e0f2;">
+              <h3 style="color: var(--navy); font-size: 1rem; margin-bottom: 1rem">إضافة نموذج PDF جديد</h3>
+              <div class="form-grid">
+                <div class="form-group">
+                  <label>اسم النموذج <span class="req">*</span></label>
+                  <input type="text" id="admin-model-name" placeholder="اسم النموذج" />
+                </div>
+                <div class="form-group">
+                  <label>ملف PDF <span class="req">*</span></label>
+                  <input type="file" id="admin-model-file" accept="application/pdf" />
+                </div>
+              </div>
+              <button class="btn-primary" onclick="addNewModelPDF()" style="margin-top: 1rem">➕ إضافة نموذج</button>
+            </div>
+
+            <!-- تم حذف جزء النماذج المرفوعة بناءً على طلب الإدارة -->
+
+            <!-- Edit/Delete Course Section (unchanged) -->
+            <div style="margin-top: 2rem; padding: 1.5rem; background: #f8fafb; border-radius: 12px; border: 1px solid #e5e7eb;">
+              <h3 style="color: var(--navy); font-size: 1rem; margin-bottom: 1rem">تعديل أو حذف مقرر</h3>
+              <div class="form-grid">
+                <div class="form-group full">
+                  <label>اختر المقرر <span class="req">*</span></label>
+                  <select id="admin-course-search" onchange="onCourseSelect()">
+                    <option value="">-- اختر المقرر --</option>
+                  </select>
+                </div>
+              </div>
+              <div id="admin-course-details" style="display: none; margin-top: 1.5rem; padding: 1rem; background: white; border-radius: 8px; border: 1px solid #e5e7eb;">
+                <div style="margin-bottom: 1rem">
+                  <strong style="color: var(--navy); font-size: 0.95rem">كود المقرر:</strong>
+                  <div style="color: #6b7280; margin-top: 0.3rem" id="selected-course-code"></div>
+                </div>
+                <div style="margin-bottom: 1rem">
+                  <strong style="color: var(--navy); font-size: 0.95rem">اسم المقرر الحالي:</strong>
+                  <div style="color: #6b7280; margin-top: 0.3rem" id="selected-course-name"></div>
+                </div>
+                <div style="margin-bottom: 1rem">
+                  <label style="display: block; color: var(--navy); font-size: 0.95rem; margin-bottom: 0.5rem;">اسم المقرر الجديد</label>
+                  <input type="text" id="admin-course-edit-name" placeholder="اكتب الاسم الجديد هنا" style="width: 100%; padding: 0.85rem 1rem; border-radius: 10px; border: 1px solid #d1d5db; font-size: 0.95rem;" />
+                </div>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap">
+                  <button class="btn-sm btn-edit" onclick="saveSelectedCourseEdit()">💾 حفظ التعديل</button>
+                  <button class="btn-sm btn-danger" onclick="deleteSelectedCourse()">🗑️ حذف المقرر</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- User Access Management Tab -->
+        <div id="admin-access-tab" class="tab-content">
+          <div class="form-section">
+            <div class="form-section-title">👥 تحديد صلاحيات المستخدمين</div>
+
+            <div
+              style="
+                margin-bottom: 1.5rem;
+                padding: 1rem;
+                background: #fffbeb;
+                border-radius: 8px;
+                border-right: 4px solid #f59e0b;
+              "
+            >
+              <p style="color: #92400e; font-size: 0.9rem; margin: 0">
+                <strong>ملاحظة:</strong> لمستخدمي «مشاهد» اختر نوع الوصول: معايير الجودة فقط، أو ملفات المقررات الدراسية فقط، أو الاثنين معاً.
+              </p>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 1.25rem; max-width: 28rem">
+              <label for="admin-users-search" style="display: block; margin-bottom: 0.4rem; color: var(--navy); font-weight: 600; font-size: 0.9rem"
+                >بحث عن مستخدم</label
+              >
+              <input
+                type="search"
+                id="admin-users-search"
+                dir="rtl"
+                placeholder="اكتب الاسم أو البريد الإلكتروني…"
+                autocomplete="off"
+                style="width: 100%; padding: 0.75rem 1rem; border-radius: 10px; border: 1px solid #d1d5db; font-size: 0.95rem; font-family: 'Cairo', sans-serif"
+                oninput="filterAdminUsersTable()"
+              />
+            </div>
+
+            <div class="report-table-wrapper">
+              <table class="report-table" style="font-size: 0.88rem">
+                <thead>
+                  <tr>
+                    <th style="min-width: 150px">المستخدم</th>
+                    <th style="min-width: 120px">الدور</th>
+                    <th style="min-width: 100px">الحالة</th>
+                    <th style="min-width: 300px">نوع الوصول</th>
+                    <th style="width: 150px">الإجراءات</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-users-body"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== COURSE FILE PAGE ===================== -->
+    <div id="page-course-file" class="page">
+      <div class="page-header">
+        <div class="page-header-icon">📋</div>
+        <div>
+          <div class="breadcrumb">الرئيسية / تقارير ملفات المقررات</div>
+          <h2>تقرير مراجعة ملف المقرر</h2>
+          <p>Course File Review Report</p>
+        </div>
+      </div>
+
+      <div class="form-container" style="margin: 2rem auto">
+        <!-- Back Button (Hidden until secondary actions shown) -->
+        <div
+          id="cf-back-button-area"
+          style="display: none; margin-bottom: 1.5rem"
+        >
+          <button
+            class="btn-outline"
+            onclick="goBackToBasicData()"
+            style="width: 100%; padding: 0.8rem; font-size: 1rem"
+          >
+            ⬅️ العودة للبيانات الأساسية
+          </button>
+        </div>
+
+        <!-- Basic Info -->
+        <div id="cf-basic-section" class="form-section">
+          <div class="form-section-title">البيانات الأساسية</div>
+          <div class="form-grid">
+            <div class="form-group">
+              <label>تاريخ التقرير <span class="req">*</span></label>
+              <input type="date" id="cf-date" />
+            </div>
+            <div class="form-group">
+              <label>الفصل الدراسي</label>
+              <select id="cf-semester" onchange="renderCFTable()">
+                <option value="">الكل</option>
+                <option>فصل الخريف</option>
+                <option>فصل الربيع</option>
+                <option>فصل الصيف</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>المستوي الدراسي</label>
+              <select id="cf-level" onchange="renderCFTable()">
+                <option value="">الكل</option>
+                <option>المستوي الاول</option>
+                <option>المستوي الثاني</option>
+                <option>المستوي الثالث</option>
+                <option>المستوي الرابع</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>اختيار الائحه</label>
+              <select id="cf-list">
+                <option value="">-- اختر اللائحة --</option>
+                <option value="new">اللائحة الجديدة</option>
+                <option value="old">اللائحة القديمة</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>كود المقرر <span class="req">*</span> <span style="font-weight:500;color:var(--gray);font-size:0.82rem">(عرض CS 101 — تخزين CS101)</span></label>
+              <select id="cf-code" onchange="autoFillCourseName()">
+                <option value="">-- اختر الكود --</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>اسم المقرر <span class="req">*</span> <span style="font-weight:500;color:var(--gray);font-size:0.82rem">(بالإنجليزية حسب الجدول الرسمي)</span></label>
+              <input
+                type="text"
+                id="cf-name"
+                placeholder="يُملأ تلقائياً عند اختيار الكود"
+              />
+            </div>
+            <div class="form-group">
+              <label>اسم أستاذ المقرر</label>
+              <input type="text" id="cf-prof" placeholder="د. ..." />
+            </div>
+          </div>
+        </div>
+
+        <!-- Documents Check (Hidden until basic data submitted) -->
+        <div id="cf-docs-section" class="form-section" style="display: none">
+          <div class="form-section-title">مستندات ملف المقرر</div>
+          <table class="indicators-table">
+            <thead>
+              <tr>
+                <th style="width: 35px">م</th>
+                <th>المستند</th>
+                <th style="width: 180px">الحالة</th>
+              </tr>
+            </thead>
+            <tbody id="cf-docs-body"></tbody>
+          </table>
+        </div>
+
+        <!-- Weekly Content (Hidden until basic data submitted) -->
+        <div id="cf-weekly-section" class="form-section" style="display: none">
+          <div class="form-section-title">المادة العلمية الأسبوعية (1-14)</div>
+          <table class="indicators-table">
+            <thead>
+              <tr>
+                <th style="width: 120px">الأسبوع</th>
+                <th>حالة المادة العلمية</th>
+              </tr>
+            </thead>
+            <tbody id="weekly-body"></tbody>
+          </table>
+        </div>
+
+        <!-- Notes (Hidden until basic data submitted) -->
+        <div id="cf-notes-section" class="form-section" style="display: none">
+          <div class="form-section-title">ملاحظات</div>
+          <div class="form-group">
+            <label>الملاحظات العامة (اختياري)</label>
+            <textarea
+              id="cf-notes"
+              placeholder="أدخل أي ملاحظات إضافية هنا..."
+            ></textarea>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="form-section">
+          <div class="form-actions" id="cf-form-actions">
+            <button
+              id="cf-submit-btn"
+              class="btn-primary"
+              onclick="submitCourseFile()"
+            >
+              ✅ متابعة (إظهار المستندات والمواد)
+            </button>
+            <div id="cf-secondary-actions" style="display: none">
+              <button class="btn-primary" id="cf-save-btn" onclick="console.log('Save button clicked'); saveCourseFile();">
+                💾 حفظ التقرير
+              </button>
+              <button class="btn-success" onclick="exportCFPDF()">
+                📄 تصدير PDF
+              </button>
+              <button class="btn-primary" onclick="exportCFPDF()">
+                📄 تصدير PDF
+              </button>
+            </div>
+            <button class="btn-outline" onclick="resetCourseForm()">
+              مسح البيانات
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== QUALITY STANDARDS PAGE ===================== -->
+    <div id="page-quality-standards" class="page">
+      <div class="page-header">
+        <div class="page-header-icon">🏛️</div>
+        <div>
+          <div class="breadcrumb">الرئيسية / تقارير معايير الجودة</div>
+          <h2>تقرير مراجعة معايير الجودة</h2>
+          <p>Quality Standards Review Report – NAQAAE</p>
+        </div>
+      </div>
+
+      <div class="form-container" style="margin: 2rem auto; max-width: 1000px">
+        <div class="form-section">
+          <div class="form-section-title">بيانات التقرير</div>
+          <div class="form-grid cols3">
+            <div class="form-group">
+              <label>تاريخ التقرير <span class="req">*</span></label>
+              <input type="date" id="qs-date" />
+            </div>
+            <div class="form-group">
+              <label>نوع الاعتماد <span class="req">*</span></label>
+              <select id="qs-type" onchange="renderStandards()">
+                <option value="">-- اختر --</option>
+                <option value="institutional">مؤسسي</option>
+                <option value="programmatic">برامجي</option>
+              </select>
+            </div>
+            <div class="form-group" id="qs-program-group" style="display: none">
+              <label>البرنامج <span class="req">*</span></label>
+              <select id="qs-program">
+                <option value="">-- اختر البرنامج --</option>
+                <option value="CS">CS</option>
+                <option value="AI">AI</option>
+                <option value="IS">IS</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>رقم المعيار</label>
+              <select id="qs-std-num">
+                <option value="">-- اختر نوع الاعتماد أولاً --</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div id="standards-area"></div>
+
+        <div class="form-section" id="qs-notes-section" style="display: none">
+          <div class="form-section-title">📝 ملاحظات التقرير</div>
+          <div class="form-group">
+            <textarea
+              id="qs-notes"
+              placeholder="ملاحظات عامة على التقرير..."
+            ></textarea>
+          </div>
+          <div class="form-actions" style="margin-top: 1rem">
+            <button class="btn-primary" onclick="submitQualityStandards()">
+              💾 حفظ التقرير
+            </button>
+            <button class="btn-success" onclick="exportQSPDF()">
+              📄 تصدير PDF
+            </button>
+            <button class="btn-success" onclick="exportQSExcel()">
+              📊 تصدير Excel
+            </button>
+            <button class="btn-outline" onclick="resetQSForm()">🔄 مسح</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== VIEW REPORTS PAGE ===================== -->
+    <div id="page-view-reports" class="page">
+      <div class="page-header">
+        <div class="page-header-icon">📊</div>
+        <div>
+          <div class="breadcrumb">الرئيسية / عرض التقارير</div>
+          <h2>عرض التقارير المُدخلة</h2>
+          <p>View &amp; Export Submitted Reports</p>
+        </div>
+      </div>
+
+      <div style="background: white">
+        <div class="tabs">
+          <button
+            type="button"
+            class="tab-btn active"
+            id="view-reports-tab-course"
+            onclick="switchTab('tab-course', this)"
+          >
+            تقارير ملفات المقررات
+          </button>
+          <button
+            type="button"
+            class="tab-btn"
+            id="view-reports-tab-quality"
+            onclick="switchTab('tab-quality', this)"
+          >
+            تقارير معايير الجودة
+          </button>
+        </div>
+
+        <!-- Course Files Tab -->
+        <div class="tab-content active" id="tab-course">
+          <div class="view-mode-panel">
+            <div>
+              <h3>خيارات عرض تقارير ملفات المقررات</h3>
+              <p>
+                هذه الصفحة مخصصة <strong>للعرض والتصدير فقط</strong>. يتم عرض
+                <strong>آخر تقرير</strong> تلقائيًا لكل مقرر حسب الفلاتر المختارة.
+              </p>
+            </div>
+            <div class="view-mode-badge">عرض فقط</div>
+          </div>
+          <div class="filter-bar report-view-filter-bar">
+            <div class="filter-item">
+              <label>طريقة العرض</label>
+              <select id="filter-course-scope" onchange="updateCourseViewMode(); renderCFTable()">
+                <option value="all">كل التقارير / كل المقررات</option>
+                <option value="single">تقرير مقرر معين</option>
+              </select>
+            </div>
+            <div class="filter-item">
+              <label>الفصل الدراسي</label>
+              <select id="filter-semester" onchange="renderCFTable()">
+                <option value="">الكل</option>
+                <option>فصل الخريف</option>
+                <option>فصل الربيع</option>
+                <option>فصل الصيف</option>
+              </select>
+            </div>
+            <div class="filter-item">
+              <label>اختيار اللائحة</label>
+              <select id="filter-List" onchange="onCourseViewFilterChanged()">
+                <option value="">الكل</option>
+                <option value="new">اللائحة الجديدة</option>
+                <option value="old">اللائحة القديمة</option>
+              </select>
+            </div>
+            <div class="filter-item">
+              <label>البرنامج</label>
+              <select id="filter-program" onchange="onCourseViewFilterChanged()">
+                <option value="">الكل</option>
+              </select>
+            </div>
+            <div class="filter-item" id="filter-course-wrapper">
+              <label>المادة / المقرر</label>
+              <select id="filter-course" onchange="renderCFTable()">
+                <option value="">-- اختر المقرر --</option>
+              </select>
+            </div>
+            <div class="view-actions-group">
+              <button
+                class="btn-primary"
+                style="align-self: flex-end; padding: 0.55rem 1.2rem"
+                onclick="renderCFTable()"
+              >
+                👁️ عرض
+              </button>
+              <button
+                class="btn-primary"
+                style="align-self: flex-end; padding: 0.55rem 1.2rem"
+                onclick="exportCFViewPDF()"
+              >
+                📄 PDF
+              </button>
+              <button
+                class="btn-success"
+                style="align-self: flex-end; padding: 0.55rem 1.2rem"
+                onclick="exportCFViewExcel()"
+              >
+                📊 Excel
+              </button>
+            </div>
+          </div>
+          <div class="report-view-summary" id="cf-view-summary"></div>
+          <div class="report-table-wrapper">
+            <table class="report-table">
+              <thead>
+                <tr>
+                  <th>م</th>
+                  <th>آخر تاريخ تقرير</th>
+                  <th>اللائحة</th>
+                  <th>كود المقرر</th>
+                  <th>اسم المقرر</th>
+                  <th>أستاذ المقرر</th>
+                  <th>الفصل</th>
+                  <th>ملاحظات</th>
+                </tr>
+              </thead>
+              <tbody id="cf-view-body">
+                <tr>
+                  <td
+                    colspan="8"
+                    style="
+                      text-align: center;
+                      padding: 2rem;
+                      color: var(--gray);
+                    "
+                  >
+                    لا توجد تقارير مُدخلة بعد
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Quality Standards Tab -->
+        <div class="tab-content" id="tab-quality">
+          <div class="view-mode-panel">
+            <div>
+              <h3>خيارات عرض تقارير معايير الجودة</h3>
+            </div>
+            <div class="view-mode-badge">عرض فقط</div>
+          </div>
+          <div class="filter-bar report-view-filter-bar">
+            <div class="filter-item">
+              <label>نوع الاعتماد</label>
+              <select id="filter-qs-type" onchange="updateQSViewFilters(); renderQSTable()">
+                <option value="">-- اختر النوع --</option>
+                <option value="institutional">مؤسسي</option>
+                <option value="programmatic">برامجي</option>
+              </select>
+            </div>
+            <div class="filter-item">
+              <label>تاريخ التقرير</label>
+              <select id="filter-qs-date" onchange="updateQSViewFilters(); renderQSTable()">
+                <option value="">-- اختر التاريخ --</option>
+              </select>
+            </div>
+            <div class="filter-item" id="filter-qs-report-wrapper">
+              <label>المعيار (اختياري)</label>
+              <select id="filter-qs-report" onchange="renderQSTable()">
+                <option value="">كل المعايير</option>
+              </select>
+            </div>
+            <div class="filter-item" id="filter-qs-program-wrapper">
+              <label>البرنامج</label>
+              <select id="filter-qs-program" onchange="renderQSTable()">
+                <option value="">-- اختر البرنامج --</option>
+                <option value="CS">علوم الحاسب</option>
+                <option value="IS">نظم المعلومات</option>
+                <option value="AI">الذكاء الاصطناعي</option>
+              </select>
+            </div>
+            <div class="view-actions-group">
+              <button
+                class="btn-primary"
+                style="align-self: flex-end; padding: 0.55rem 1.2rem"
+                onclick="renderQSTable()"
+              >
+                👁️ عرض
+              </button>
+              <button
+                class="btn-primary"
+                style="align-self: flex-end; padding: 0.55rem 1.2rem"
+                onclick="exportQSViewPDF()"
+              >
+                📄 PDF
+              </button>
+              <button
+                class="btn-success"
+                style="align-self: flex-end; padding: 0.55rem 1.2rem"
+                onclick="exportQSViewExcel()"
+              >
+                📊 Excel
+              </button>
+            </div>
+          </div>
+          <div class="report-view-summary" id="qs-view-summary"></div>
+          <div class="report-table-wrapper">
+            <table class="report-table">
+              <thead id="qs-view-head">
+                <tr>
+                  <th>م</th>
+                  <th>تاريخ التقرير</th>
+                  <th>نوع المعيار</th>
+                  <th>رقم المعيار</th>
+                  <th>اسم المعيار</th>
+                  <th>البرنامج</th>
+                  <th>مستوفي</th>
+                  <th>مستوفي جزئي</th>
+                  <th>غير مستوفي</th>
+                </tr>
+              </thead>
+              <tbody id="qs-view-body">
+                <tr>
+                  <td
+                    colspan="9"
+                    style="
+                      text-align: center;
+                      padding: 2rem;
+                      color: var(--gray);
+                    "
+                  >
+                    لا توجد تقارير مُدخلة بعد
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== USER PROFILE PAGE ===================== -->
+    <div id="page-user-profile" class="page">
+      <div class="page-header">
+        <div class="page-header-icon">👤</div>
+        <div>
+          <div class="breadcrumb">الرئيسية / ملفي الشخصي</div>
+          <h2>ملفي الشخصي</h2>
+          <p>My Reports &amp; Profile</p>
+        </div>
+      </div>
+
+      <div class="form-container" style="margin: 2rem auto">
+        <!-- User Info Section -->
+        <div class="form-section">
+          <div class="form-section-title">معلومات المستخدم</div>
+          <div
+            style="
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 1.5rem;
+              margin-bottom: 1.5rem;
+            "
+          >
+            <div>
+              <label style="color: var(--gray); font-size: 0.9rem">الاسم</label>
+              <p
+                style="
+                  color: var(--navy);
+                  font-weight: 600;
+                  font-size: 1.1rem;
+                  margin-top: 0.5rem;
+                "
+                id="profile-name"
+              >
+                -
+              </p>
+            </div>
+            <div>
+              <label style="color: var(--gray); font-size: 0.9rem"
+                >البريد الإلكتروني</label
+              >
+              <p
+                style="
+                  color: var(--navy);
+                  font-weight: 600;
+                  font-size: 1.1rem;
+                  margin-top: 0.5rem;
+                "
+                id="profile-email"
+              >
+                -
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- My Reports Section -->
+        <div class="form-section">
+          <div class="form-section-title">📋 تقاريري</div>
+
+          <!-- Search & Filter -->
+          <div
+            style="
+              margin-bottom: 1.5rem;
+              padding: 1rem;
+              background: #f8fafb;
+              border-radius: 8px;
+            "
+          >
+            <div class="form-grid">
+              <div class="form-group">
+                <label>البحث بالتاريخ</label>
+                <input
+                  type="date"
+                  id="user-report-date-search"
+                  onchange="filterUserReports()"
+                />
+              </div>
+              <div class="form-group">
+                <label>اختر تقرير</label>
+                <select
+                  id="user-reports-dropdown"
+                  onchange="selectUserReport()"
+                >
+                  <option value="">-- اختر تقرير --</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reports List -->
+          <div style="margin-top: 1.5rem">
+            <h4 style="color: var(--navy); margin-bottom: 1rem">
+              قائمة التقارير المُدخلة
+            </h4>
+            <div id="user-reports-list" style="display: grid; gap: 1rem">
+              <div
+                style="text-align: center; padding: 2rem; color: var(--gray)"
+              >
+                لا توجد تقارير مُدخلة بعد
+              </div>
+            </div>
+          </div>
+
+          <!-- Selected Report Details -->
+          <div
+            id="selected-report-details"
+            style="
+              display: none;
+              margin-top: 2rem;
+              padding: 1.5rem;
+              background: #f8fafb;
+              border-radius: 8px;
+              border-left: 4px solid var(--success);
+            "
+          >
+            <h4 style="color: var(--navy); margin-bottom: 1rem">
+              📄 تفاصيل التقرير
+            </h4>
+            <div
+              id="report-details-content"
+              style="
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+                margin-bottom: 1.5rem;
+              "
+            ></div>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap">
+              <button class="btn-primary" onclick="exportUserReportPDF()">
+                📄 تصدير PDF
+              </button>
+              <button class="btn-success" onclick="exportUserReportExcel()">
+                📊 تصدير Excel
+              </button>
+              <button class="btn-sm btn-danger" onclick="deleteUserReport()">
+                🗑️ حذف التقرير
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== RELEASES & FORMS PAGE ===================== -->
+    <div id="page-releases-forms" class="page">
+      <div class="page-header">
+        <div class="page-header-icon">📚</div>
+        <div>
+          <div class="breadcrumb">الرئيسية / إصدارات ونماذج</div>
+          <h2>الإصدارات والنماذج</h2>
+          <p>Releases & Forms - Download Official Documents</p>
+        </div>
+      </div>
+
+      <div class="form-container" style="margin: 2rem auto">
+        <!-- Admin Add Form (visible only to admin) -->
+        <div class="form-section admin-section" id="admin-add-form" style="display: none;">
+          <div class="form-section-title">➕ إضافة ملف جديد (للمدير فقط)</div>
+          <div class="admin-form-grid">
+            <div class="form-group">
+              <label>اسم الملف <span class="req">*</span></label>
+              <input type="text" id="new-file-name" placeholder="اسم الملف">
+            </div>
+            <div class="form-group">
+              <label>الحجم <span class="req">*</span></label>
+              <input type="text" id="new-file-size" placeholder="مثال: 55.09 KB">
+            </div>
+            <div class="form-group">
+              <label>التاريخ <span class="req">*</span></label>
+              <input type="date" id="new-file-date">
+            </div>
+            <div class="form-group">
+              <label>رابط التحميل</label>
+              <input type="text" id="new-file-url" placeholder="رابط الملف (اختياري)">
+            </div>
+          </div>
+          <button class="btn-primary" onclick="addNewFile()">➕ إضافة ملف</button>
+        </div>
+
+        <!-- Files List Section -->
+        <div class="form-section">
+          <div class="form-section-title">📁 الملفات والنماذج</div>
+          
+          <!-- Files Container -->
+          <div id="files-list-container" class="files-list">
+            <!-- Files will be rendered here by JavaScript -->
+          </div>
+          
+          <!-- View More Button -->
+          <div class="view-more-container">
+            <button id="view-more-btn" class="btn-view-more" onclick="viewMore()">View More</button>
+          </div>
+          
+          <!-- Pagination -->
+          <div id="pagination-container" class="pagination"></div>
+        </div>
+
+
+      </div>
+    </div>
+
+    <!-- ===================== MODALS ===================== -->
+    <!-- AUTH MODAL (Login + Signup) -->
+    <div class="auth-overlay" id="auth-overlay" onclick="closeAuthModal(event)">
+      <div class="auth-card" dir="rtl">
+        <!-- Close -->
+        <button class="auth-close" onclick="closeAuthModal(null)">✕</button>
+
+        <!-- Logo -->
+        <div class="auth-logo" style="display:flex;flex-direction:column;align-items:center;gap:0.5rem;margin-bottom:1.2rem;">
+          <img src="LOGO_blue.png" alt="MUST" style="height:54px;width:auto;display:block;margin-bottom:0.2rem;" />
+          <div class="auth-logo-title" style="font-family:'Cairo',sans-serif;font-weight:900;font-size:1.2rem;color:#1565c0;">MUST Quality Portal</div>
+          <div class="auth-logo-sub"></div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="auth-tabs">
+          <button
+            class="auth-tab active"
+            id="tab-login"
+            onclick="switchAuthTab('login')"
+          >
+            تسجيل الدخول
+          </button>
+          <button
+            class="auth-tab"
+            id="tab-signup"
+            onclick="switchAuthTab('signup')"
+          >
+            إنشاء حساب
+          </button>
+        </div>
+
+        <!-- Login Panel -->
+        <div class="auth-panel active" id="panel-login">
+          <div class="auth-field">
+            <label>البريد الإلكتروني أو الاسم</label>
+            <input
+              type="text"
+              id="login-email"
+              placeholder="البريد الإلكتروني أو اسم المستخدم"
+              autocomplete="username"
+            />
+          </div>
+          <div class="auth-field">
+            <label>كلمة المرور</label>
+            <input
+              type="password"
+              id="login-pass"
+              placeholder="••••••••"
+              autocomplete="current-password"
+            />
+          </div>
+          <!-- تم حذف اختيار الدور من تسجيل الدخول -->
+          <button class="auth-submit" onclick="doLogin()">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4M10 17l5-5-5-5M15 12H3"
+              />
+            </svg>
+            دخول
+          </button>
+          <p class="auth-switch">
+            ليس لديك حساب؟
+            <a onclick="switchAuthTab('signup')">إنشاء حساب جديد</a>
+          </p>
+        </div>
+
+        <!-- Signup Panel -->
+        <div class="auth-panel" id="panel-signup">
+          <div class="auth-field">
+            <label>الاسم <span class="req">*</span></label>
+            <input
+              type="text"
+              id="signup-name"
+              placeholder="الاسم الكامل"
+              autocomplete="name"
+            />
+          </div>
+
+          <div class="auth-field">
+            <label>البريد الإلكتروني <span class="req">*</span></label>
+            <input
+              type="email"
+              id="signup-email"
+              placeholder="example@must.edu.eg"
+              autocomplete="email"
+            />
+          </div>
+          <div class="auth-field">
+            <label>كلمة المرور <span class="req">*</span></label>
+            <input
+              type="password"
+              id="signup-pass"
+              placeholder="8 أحرف على الأقل"
+              autocomplete="new-password"
+            />
+          </div>
+          <div class="auth-field">
+            <label>تأكيد كلمة المرور <span class="req">*</span></label>
+            <input
+              type="password"
+              id="signup-pass2"
+              placeholder="أعد كتابة كلمة المرور"
+              autocomplete="new-password"
+            />
+          </div>
+          
+          <!-- OTP Section (hidden initially) -->
+          <div id="signup-otp-section" style="display: none;">
+            <div class="auth-field">
+              <label>كود التحقق <span class="req">*</span></label>
+              <input
+                type="text"
+                id="signup-otp"
+                placeholder="أدخل كود التحقق المكون من 5 أرقام"
+                maxlength="5"
+                autocomplete="one-time-code"
+                inputmode="numeric"
+                pattern="[0-9]*"
+                dir="ltr"
+                oninput="this.value=this.value.replace(/\D/g,'').slice(0,5)"
+              />
+            </div>
+            <button class="auth-submit" id="verify-otp-btn" onclick="verifySignupOTP()">
+              التحقق من الكود
+            </button>
+            <p class="auth-switch">
+              <a onclick="resendSignupOTP()">إعادة إرسال كود التحقق</a>
+            </p>
+          </div>
+          
+          <button class="auth-submit" id="signup-submit-btn" onclick="doSignup()">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8zM19 8v6M22 11h-6"
+              />
+            </svg>
+            إنشاء الحساب
+          </button>
+          <p class="auth-switch">
+            لديك حساب؟ <a onclick="switchAuthTab('login')">تسجيل الدخول</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== TOAST ===================== -->
+    <div id="toast" class="toast"></div>
+
+    <!-- ===================== FOOTER ===================== -->
+
+    <footer class="site-footer">
+      <div class="footer-body">
+        <div class="footer-brand">
+          <img src="assets/images/White-logo.png" alt="MUST" />
+        </div>
+
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h5>Links</h5>
+            <a href="https://must.edu.eg/">Home</a>
+            <a href="https://must.edu.eg/about-must/">The University</a>
+            <a href="https://must.edu.eg/academics/">Academics</a>
+            <a href="https://must.edu.eg/must-life/">Life At MUST</a>
+            <a href="https://must.edu.eg/research-centres/"
+              >Research &amp; Centres</a
+            >
+            <a href="https://must.edu.eg/maps-directions/"
+              >Maps &amp; Directions</a
+            >
+            <a href="https://must.edu.eg/faqs/">FAQs</a>
+          </div>
+
+          <div class="footer-col">
+            <h5>About University</h5>
+            <a href="https://must.edu.eg/about-must/">About MUST</a>
+            <a href="https://must.edu.eg/must-history/">History</a>
+            <a href="https://must.edu.eg/about-must/accreditation-partnerships/"
+              >Accreditation And Partnership</a
+            >
+            <a href="https://must.edu.eg/why-must/">Why MUST</a>
+            <a href="https://must.edu.eg/must-values-principles/"
+              >Values &amp; Principles</a
+            >
+            <a href="https://must.edu.eg/contact/">Contact Us</a>
+            <a href="https://must.edu.eg/privacy-policy/">Privacy Policy</a>
+          </div>
+
+          <div class="footer-col">
+            <h5>MUST BUZZ</h5>
+            <a href="https://must.edu.eg/event/">MUST Events</a>
+            <a href="https://must.edu.eg/news/">MUST News</a>
+            <a href="https://must.edu.eg/blog/">Blog</a>
+            <a href="https://must.edu.eg/anouncement/">Announcement</a>
+          </div>
+
+          <div class="footer-col">
+            <h5>Contact Info</h5>
+            <a href="tel:16878">16878</a>
+            <a href="mailto:Info@must.edu.eg">Info@Must.Edu.Eg</a>
+            <a
+              href="https://www.google.com/maps/search/Al+Motamayez+District+6th+of+October+Egypt"
+              target="_blank"
+              >Al Motamayez District – 6th of October, Egypt</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>Copyright All Right Reserved @ MUST UNIVERSITY 2025</span>
+        <span></span>
+      </div>
+    </footer>
+
+    <!-- ===================== SCRIPTS ===================== -->
+    <!-- Load order matters: ui → auth → courseFile → qualityStandards → adminDashboard → slider -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/exceljs@4.4.0/dist/exceljs.min.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/courseFile.js"></script>
+    <script src="js/qualityStandards.js"></script>
+    <script src="js/adminDashboard.js"></script>
+    <script src="js/userProfile.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/slider.js"></script>
+    <script src="js/social-scroll.js"></script>
+    <script src="js/releasesForms.js"></script>
+
+    <div class="social-fixed" aria-label="Social links">
+      <a href="#" class="social-search" aria-label="Search" title="Search">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle
+            cx="11"
+            cy="11"
+            r="6.5"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          />
+          <line
+            x1="16"
+            y1="16"
+            x2="21"
+            y2="21"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+        </svg>
+      </a>
+      <a
+        href="https://www.linkedin.com/school/misr-university-for-science-and-technology/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="LinkedIn"
+        title="LinkedIn"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            fill="currentColor"
+            d="M6.94 8.5A1.56 1.56 0 1 1 6.94 5.38A1.56 1.56 0 0 1 6.94 8.5zM5.5 9.75h2.88V19H5.5V9.75zm4.68 0h2.76v1.26h.04c.38-.73 1.33-1.5 2.73-1.5c2.92 0 3.46 1.92 3.46 4.42V19h-2.88v-4.47c0-1.07-.02-2.44-1.49-2.44c-1.49 0-1.72 1.16-1.72 2.36V19h-2.88V9.75z"
+          />
+        </svg>
+      </a>
+      <a
+        href="https://www.facebook.com/mustuni"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Facebook"
+        title="Facebook"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            fill="currentColor"
+            d="M13.5 21v-7.53h2.53l.38-2.94H13.5V8.65c0-.85.24-1.43 1.46-1.43H16.5V4.59c-.27-.04-1.2-.09-2.28-.09c-2.25 0-3.79 1.37-3.79 3.9v2.13H8v2.94h2.43V21h3.07z"
+          />
+        </svg>
+      </a>
+      <a
+        href="http://instgram.com/mustuni"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Instagram"
+        title="Instagram"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect
+            x="4.5"
+            y="4.5"
+            width="15"
+            height="15"
+            rx="4"
+            ry="4"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            r="3.5"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          />
+          <circle cx="17.4" cy="6.8" r="1.1" fill="currentColor" />
+        </svg>
+      </a>
+      <a
+        href="https://twitter.com/must_university"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="X"
+        title="X"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            fill="currentColor"
+            d="M18.9 3H21l-4.58 5.24L21.8 21h-4.22l-3.3-4.35L10.47 21H8.36l4.9-5.6L8 3h4.33l2.98 3.94L18.9 3zm-1.48 16h1.17L11.7 4.9h-1.25L17.42 19z"
+          />
+        </svg>
+      </a>
+    </div>
+  </body>
+</html>

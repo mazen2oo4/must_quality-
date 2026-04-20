@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(xcode-select -p)",
+      "Bash(node:*)",
+      "Bash(rm:*)",
+      "Bash(curl -s http://localhost:3000/api/auth/me)",
+      "Bash(curl -s -X POST http://localhost:3000/api/auth/signup -H 'Content-Type: application/json' -d '{\"name\":\"Admin\",\"email\":\"admin@must.edu.eg\",\"password\":\"12345678\",\"role\":\"admin\"}')",
+      "Bash(kill %1)"
+    ]
+  }
+}
